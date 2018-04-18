@@ -3,11 +3,11 @@
 .. image:: https://travis-ci.org/lsst/LDM-538.svg
    :target: https://travis-ci.org/lsst/LDM-538
 
-###############################################
+##########################################
 LSST Level 1 DM Enclave Test Specification
-###############################################
+##########################################
 
-LDM-534
+LDM-538
 =======
 
 This document describes the detailed test specification for the LSST Level 1 DM Enclave System.
