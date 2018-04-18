@@ -174,7 +174,90 @@ as a software problem report and filed with the DMCCB.
 \label{suspension}
 
 Refer to individual test cases where applicable.
+-----------------
+======================================================
+Test Spec
 
+Note: Once the files have been ingested into the DBB, full tests of the 
+   Data Backbone services can be run for more thorough
+   checks.    See Data Backbone Services tests for details.    
+
+Procedure:
+* If not already available, set up test machines,
+  services, accounts (ITC)
+    * DBB gateway client machine that can see files output by L1 archiver
+    * DBB gateway server machine that has:
+        * File transfer service
+        * Delivery area
+        * Write access to Data Backbone filesystem(s)
+    * Database with apropriate schema
+    * Authentication to file transfer service and database using LSST AA(?) service.
+
+* Install and configure software
+    * DBB Gateway client machine - dbb_gwclient and prereqs
+    * DBB Gateway server machine - dbb_gateway and prereqs
+
+* If not already running, start test services
+    * (L1 test stand services)
+    * DBB Gateway
+    * Monitoring
+
+* The L1 test stand is triggered to save 1 or more raw fits files.
+
+* After the test L1 archiver has output files,
+  the DBB gateway client will stage the files plus appropriate
+  information to the test DBB gateway.
+
+* The test DBB Gateway service will automatically
+  ingest the staged file into the test DBB which
+  includes saving appropriate location, physical, science,
+  and provenance information to the database.   Spot check data 
+  in the database and the DBB filesystem or run DBB tests.
+
+* The test DBB services will automatically ensure that
+  copies of the files go to the right DBB locations as well
+  as in disaster recovery.    Spot check files are in the correct 
+  locations or run DBB tests.
+ 
+* Run spot checks to ensure meet accessibility requirements or
+ run DBB tests.
+
+
+======================================================================
+Test Report
+
+Test systems used:
+* The DBB Gateway client was run on user's workstation with no
+direct access to the L1 test stand outputs.
+* The DBB Gateway service was run on a temporary virtual machine
+running HTTPS/webdav.
+* The DBB database was a single-node Oracle system.
+
+Differences in procedure for 503-4b:
+* (The test file was manually created by Felipe instead of the L1
+test stand.)
+* The test file was manually copied to a non-L1 test stand machine
+to continue rest of test.
+* The test DBB gateway client is manually executed.  Integration
+work to automate the process is future milestone.  It is expected
+* The test DBB Gateway service was also manually executed.
+* Since both ends of the process was run by user, only testing user
+authentication (as opposed to service accounts)
+* The test DBB Gateway service stores no science information in the
+DB.  Temporary code in place waiting for Gen3 Butler.
+* There was a single site, single copy with no disaster recovery.
+* There was no monitoring.
+* Did manual checks inside the DBB.
+
+Results:
+Within the restrictions for this milestone, the test was successful.
+Following the modified test procedure with the available hardware,
+an ATS raw file along with information including user and md5sum were
+sent via HTTPs to the delivery area on the DBB gateway machine where
+another program was executed to copy the raw file to the appropriate
+test DBB directory as well as save information to the DBB database
+tables.
+-------------------
 
 \input{specs/specs.tex}
 \input{cases/cases.tex}
