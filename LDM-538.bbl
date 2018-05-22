@@ -1,0 +1,80 @@
+\begin{thebibliography}{11}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{ #1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\makeatletter
+\relax
+\def\mn@urlcharsother{\let\do\@makeother \do\$\do\&\do\#\do\^\do\_\do\%\do\~}
+\def\mn@doi{\begingroup\mn@urlcharsother \@ifnextchar [ {\mn@doi@}
+  {\mn@doi@[]}}
+\def\mn@doi@[#1]#2{\def\@tempa{#1}\ifx\@tempa\@empty \href {http://doi.org/#2}
+  {doi:#2}\else \href {http://doi.org/#2} {#1}\fi \endgroup}
+\def\mn@eprint#1#2{\mn@eprint@#1:#2::\@nil}
+\def\mn@eprint@arXiv#1{\href {http://arxiv.org/abs/#1} {\texttt{arXiv:#1}}}
+\def\mn@eprint@ascl#1{\href {http://ascl.net/#1} {\texttt{ascl:#1}}}
+\def\mn@eprint@dblp#1{\href {http://dblp.uni-trier.de/rec/bibtex/#1.xml}
+  {dblp:#1}}
+\def\mn@eprint@#1:#2:#3:#4\@nil{\def\@tempa {#1}\def\@tempb {#2}\def\@tempc
+  {#3}\ifx \@tempc \@empty \let \@tempc \@tempb \let \@tempb \@tempa \fi \ifx
+  \@tempb \@empty \def\@tempb {arXiv}\fi \@ifundefined
+  {mn@eprint@\@tempb}{\@tempb:\@tempc}{\expandafter \expandafter \csname
+  mn@eprint@\@tempb\endcsname \expandafter{\@tempc}}}
+
+\bibitem[{Claver \& {The LSST Systems Engineering Integrated Project
+  Team}(LSE-29)}]{LSE-29}
+\textbf{[LSE-29]}, Claver, C.F., {The LSST Systems Engineering Integrated
+  Project Team}, 2017,  \emph{ {LSST System Requirements (LSR)}}, \textsf{
+  LSE-29}, \urlprefix\url{https://ls.st/LSE-29}
+
+\bibitem[{Dubois-Felsmann(LSE-68)}]{LSE-68}
+\textbf{[LSE-68]}, Dubois-Felsmann, G., 2015,  \emph{ {Camera Data Acquisition
+  Interface}}, \textsf{ LSE-68}, \urlprefix\url{https://ls.st/LSE-68}
+
+\bibitem[{Dubois-Felsmann \& Jenness(LSE-61)}]{LSE-61}
+\textbf{[LSE-61]}, Dubois-Felsmann, G., Jenness, T., 2017,  \emph{ {LSST Data
+  Management Subsystem Requirements}}, \textsf{ LSE-61},
+  \urlprefix\url{https://ls.st/LSE-61}
+
+\bibitem[{Dubois-Felsmann et~al.(LSE-72)Dubois-Felsmann, Schumacher, \&
+  Selvy}]{LSE-72}
+\textbf{[LSE-72]}, Dubois-Felsmann, G., Schumacher, G., Selvy, B., 2014,
+  \emph{ {OCS Command Dictionary for Data Management}}, \textsf{ LSE-72},
+  \urlprefix\url{https://ls.st/LSE-72}
+
+\bibitem[{Juri\'c et~al.(LSE-163)}]{LSE-163}
+\textbf{[LSE-163]}, Juri\'c, M., et~al., 2017,  \emph{ {LSST Data Products
+  Definition Document}}, \textsf{ LSE-163},
+  \urlprefix\url{https://ls.st/LSE-163}
+
+\bibitem[{Lim et~al.(LDM-148)Lim, Bosch, Dubois-Felsmann et~al.}]{LDM-148}
+\textbf{[LDM-148]}, Lim, K.T., Bosch, J., Dubois-Felsmann, G., et~al., 2017,
+  \emph{ {Data Management System Design}}, \textsf{ LDM-148},
+  \urlprefix\url{https://ls.st/LDM-148}
+
+\bibitem[{Lotz(LSE-209)}]{LSE-209}
+\textbf{[LSE-209]}, Lotz, P., 2016,  \emph{ Software Component to OCS
+  Interface}, \textsf{ LSE-209}, \urlprefix\url{https://ls.st/LSE-209}
+
+\bibitem[{Lotz(LSE-70)}]{LSE-70}
+\textbf{[LSE-70]}, Lotz, P., 2016,  \emph{ System Communication Protocol
+  Interface}, \textsf{ LSE-70}, \urlprefix\url{https://ls.st/LSE-70}
+
+\bibitem[{O'Mullane et~al.(LDM-503)O'Mullane, Juri\'c, \& Economou}]{LDM-503}
+\textbf{[LDM-503]}, O'Mullane, W., Juri\'c, M., Economou, F., 2017,  \emph{
+  {Data Management Test Plan}}, \textsf{ LDM-503},
+  \urlprefix\url{https://ls.st/LDM-503}
+
+\bibitem[{O'Mullane et~al.(LDM-294)O'Mullane, Swinbank, Juri\'c, \&
+  {DMLT}}]{LDM-294}
+\textbf{[LDM-294]}, O'Mullane, W., Swinbank, J., Juri\'c, M., {DMLT}, 2017,
+  \emph{ {Data Management Organization and Management}}, \textsf{ LDM-294},
+  \urlprefix\url{https://ls.st/LDM-294}
+
+\bibitem[{Petravick \& Gelman(LDM-230)}]{LDM-230}
+\textbf{[LDM-230]}, Petravick, D., Gelman, M., 2017,  \emph{ {Concept of
+  Operations for the LSST Data Facility Services}}, \textsf{ LDM-230},
+  \urlprefix\url{https://ls.st/LDM-230}
+
+\makeatother
+\end{thebibliography}

@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: LDM-538.aux
+The style file: lsst_aa.bst
+Database file #1: lsst.bib
+Database file #2: refs.bib
+Database file #3: books.bib
+Database file #4: refs_ads.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+You've used 11 entries,
+            3036 wiz_defined-function locations,
+            1087 strings with 10764 characters,
+and the built_in function-call counts, 4668 in all, are:
+= -- 349
+> -- 282
+< -- 7
++ -- 128
+- -- 75
+* -- 438
+:= -- 670
+add.period$ -- 0
+call.type$ -- 11
+change.case$ -- 45
+chr.to.int$ -- 11
+cite$ -- 33
+duplicate$ -- 290
+empty$ -- 338
+format.name$ -- 109
+if$ -- 926
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 58
+newline$ -- 51
+num.names$ -- 44
+pop$ -- 155
+preamble$ -- 1
+purify$ -- 45
+quote$ -- 0
+skip$ -- 175
+stack$ -- 0
+substring$ -- 33
+swap$ -- 111
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 99
+warning$ -- 0
+while$ -- 33
+width$ -- 0
+write$ -- 149
