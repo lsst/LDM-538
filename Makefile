@@ -3,6 +3,8 @@ DOCNUMBER = 538
 DOCNAME = $(DOCTYPE)-$(DOCNUMBER)
 JOBNAME = $(DOCNAME)
 
+export TEXMFHOME = lsst-texmf/texmf
+
 # Version information extracted from git.
 GITVERSION := $(shell git log -1 --date=short --pretty=%h)
 GITDATE := $(shell git log -1 --date=short --pretty=%ad)
