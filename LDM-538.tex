@@ -16,7 +16,7 @@
 
 % Change history defined here.
 \setDocChangeRecord{%
-\addtohist{1}{2018-04-18}{initial release - draft version}{Michelle Butler }
+\addtohist{}{2018-04-18}{initial release - draft version}{Michelle Butler}
 }
 
 
@@ -109,13 +109,13 @@ which includes parts from each of the following components of the LSST system
 \item{OCS}
 \item{Camera DAQ}
 \item{DM Header Service}
-\item{EFD Large File Annex (limited to communication between the DM Header Service and the Archivers)} 
+\item{EFD Large File Annex (limited to communication between the DM Header Service and the Archivers)}
 \item{DM OCS Bridge}
 \item{DMCS}
-\item{Archiver} 
-\item{Catch-up Archiver} 
-\item{Alert Processor} 
-\item{ATS Achiver} 
+\item{Archiver}
+\item{Catch-up Archiver}
+\item{Alert Processor}
+\item{ATS Achiver}
 \item{Data Forwarders}
 \item{Observatory Operations Data Service}
 \item{Data Backbone Services}
@@ -207,7 +207,7 @@ Do the following satisfy the requirements described in \citeds{LSE-61}?
 This document describes the end-to-end testing of various components
 that comprise the Raw Image Archiving service. It does not include tests internal to
 a single component. Also this test specification does not
-extend beyond the positive pass/fail options. 
+extend beyond the positive pass/fail options.
 
 \subsection{Pass/fail criteria}
 \label{sec:passfail}
@@ -411,7 +411,7 @@ None.
 Repeat the following steps for each of the different cameras (ATScam, LSSTCam) and sensors (Science, Wavefront, and Guider):
 \begin{itemize}
 \item{Initialize all services configuring the L1 Archiver Service so that the raw images are to be saved to the OODS;}
-\item{Acquire a raw image (see \hyperref[ras-00-00]{RAS-00-00});} 
+\item{Acquire a raw image (see \hyperref[ras-00-00]{RAS-00-00});}
 \item{The handoff of the raw image from the L1 Archiver Service to the test OODS automatically occurs;}
 \item{For each of the expected raw images, verify that the checksum matches the original L1 checksum;}
 \item{The DM Stack shall be initialized using the \texttt{loadLSST} script;}
@@ -506,8 +506,8 @@ provenance as specified in \citeds{LSE-61};}
 Repeat the following steps for each of the different cameras (ATScam, LSSTCam) and sensors (Science, Wavefront, and Guider):
 \begin{itemize}
 \item{Initialize all services configuring the L1 Archiver Service so that the raw images are to be archived to the DBB;}
-\item{Acquire a raw image (see \hyperref[ras-00-00]{RAS-00-00});} 
-\item{After the automatic handoff of the raw image between the L1 Archiver Service and the DBB buffer manager, the raw 
+\item{Acquire a raw image (see \hyperref[ras-00-00]{RAS-00-00});}
+\item{After the automatic handoff of the raw image between the L1 Archiver Service and the DBB buffer manager, the raw
 image will automatically be ingested into the Test Data Backbone;}
 \item{Check that the raw image is accessible at each test DBB endpoint and matches original L1 checksum;}
 \item{Check that LSST Monitoring Service showed the appropriate information successfully;}
@@ -555,7 +555,7 @@ This test will check:
 \subsubsection{Procedure}
 \begin{itemize}
 \item{For each of the requirements to be tested, run the test on each individual component;}
-\item{For DMS-REQ-0167, where there is a handoff between the major components in the Raw Image Archiving Service, 
+\item{For DMS-REQ-0167, where there is a handoff between the major components in the Raw Image Archiving Service,
 repeat the tests \hyperref[ras-00-00]{RAS-00-10} and \hyperref[ras-00-00]{RAS-00-20} failing a major component;}
 \item{For end-to-end tests that include downstream services/components, refer to the downstream
 service/component test specifications;}
