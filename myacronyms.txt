@@ -72,6 +72,7 @@ PMCS:Project Management Control System
 PS:Project Scientist
 PST:Project Science Team
 Qserv:Query Service, Proprietary LSST Database system
+RAS:Raw image Archive Service (Tag for requirements)
 RTM:Rear Transition Module
 SA:Science Alert(s)
 SAMP:Simple Application Messaging Protocol
