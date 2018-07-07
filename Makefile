@@ -30,3 +30,10 @@ meta.tex: Makefile .FORCE
 	/bin/echo '\newcommand{\lsstDocNum}{$(DOCNUMBER)}' >>$@
 	/bin/echo '\newcommand{\vcsrevision}{$(GITVERSION)$(GITDIRTY)}' >>$@
 	/bin/echo '\newcommand{\vcsdate}{$(GITDATE)}' >>$@
+
+tex=$(filter-out $(wildcard *acronyms.tex) , $(wildcard *.tex))  
+
+#put lsst-texmf/bin in your path
+acronyms.tex :$(tex) myacronyms.txt
+	 generateAcronyms.py   $(tex)
+
