@@ -20,7 +20,8 @@ DC:Data Center
 DCR:Document Change Request
 DM:Data Management
 DMCCB:DM Change Control Board
-DMCS:DM Control System AAA: Authentication Authorization and Accounting
+DMCS:DM Control System 
+AAA: Authentication Authorization and Accounting
 DMIS:DM Interface Scientist
 DMLT:DM Leadership Team
 DMO:Data Management Organization
