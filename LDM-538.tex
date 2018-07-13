@@ -98,6 +98,7 @@ which includes parts from each of the following components of the LSST system
 \item{DM Header Service}
 \item{EFD Large File Annex (limited to communication between the DM Header Service and the Archivers)}
 \item{DM OCS Bridge}
+\item{CCOB}
 \item{DMCS}
 \item{Archiver}
 \item{Catch-up Archiver}
@@ -153,9 +154,10 @@ which includes parts from each of the following components of the LSST system
 
 The major activities to be performed are to:
 \begin{itemize}
-\item{Show successful integration between Telescope subsystems and L1 Archiver Service;}
-\item{Show successful integration between L1 Archiver Service and OODS;}
-\item{Show successful integration between L1 Archiver Service and DBB;}
+\item{Show successful integration between Telescope subsystems and Level 1 Archiver Service;}
+\item{Show successful integration between CCOB(Camera Calibration Optical Bench) and DBB (Data Backbone);}
+\item{Show successful integration between Level 1 Archiver Service and OODS;}
+\item{Show successful integration between Level 1 Archiver Service and DBB;}
 \end{itemize}
 
 
@@ -168,6 +170,7 @@ The following are the major items under test:
 
 \begin{itemize}
 \item{Create a well-formed raw image with data acquired from the Camera DAQ and the DM Header Service; }
+\item{Create a image from a CCOB  and ingest the file into the DBB for further processing;; }
 \item{Save a raw image in the OODS cache and access it using normal LSST mechanisms (e.g., ``Data Butler''); }
 \item{Ingest a raw image into the DBB; }
 \end{itemize}
@@ -233,6 +236,7 @@ for rapid access for Observatory Operations staff.
 \begin{longtable} {|p{0.4\textwidth}|p{0.6\textwidth}|}\hline
 \textbf{Test Case} & \textbf{Description} \\\hline
 \hyperref[ras-00-00]{RAS-00-00} & Tests that well-formed raw image can be written \\\hline
+\hyperref[ras-00-05]{RAS-00-05} & Tests that files from a CCOB can be ingested in to the DBB for further processing \\\hline
 \hyperref[ras-00-10]{RAS-00-10} & Tests that the raw image can be accessed via the OODS \\\hline
 \hyperref[ras-00-20]{RAS-00-20} & Tests that the raw image has been archived in the DBB \\\hline
 \hyperref[ras-00-30]{RAS-00-30} & Overall testing of availability, throughput, reliability, and heterogeneity \\\hline
@@ -265,7 +269,7 @@ This test will check:
 
 
 \begin{itemize}
-\item{The successful integration of the Pathfinder components with the DM Header Service and the L1 Archiver;}
+\item{The successful integration of the Pathfinder components with the DM Header Service and the Level 1 Archiver;}
 \item{That the raw images are well-formed and meet specifications in change-controlled documents \citeds{LSE-61};}
 \end{itemize}
 
@@ -279,15 +283,15 @@ This test will check:
 \subsubsection{Environmental needs}
 \paragraph{Hardware}
 \begin{itemize}
-\item{L1 test stand}
+\item{Level 1 test stand}
 \item{Test machine for LSST Monitoring Service}
 \end{itemize}
 
 
 \paragraph{Software}
 \begin{itemize}
-\item{L1 software and services needed to create raw image}
-\item{LSST Monitoring Service and plugins specific to monitoring L1 Test Stand and services}
+\item{Level 1 software and services needed to create raw image}
+\item{LSST Monitoring Service and plugins specific to monitoring Level 1 Test Stand and services}
 \end{itemize}
 
 
@@ -317,6 +321,71 @@ Repeat the following steps for each of the different cameras (ATScam, LSSTCam) a
 \item{Check that LSST Monitoring Service showed the appropriate information successfully;}
 \end{itemize}
 
+%----------------------------------------------------
+\subsection{RAS-00-05: Writing data from a CCOB to the DBB for futher data processing}
+\label{ras-00-05}
+
+
+\subsubsection{Requirements}
+
+\begin{itemize}
+\item{DMS-REQ-0018}
+\item{DMS-REQ-0020}
+\item{DMS-REQ-0265}
+\item{DMS-REQ-0068}
+\item{DMS-REQ-0024}
+\item{DMS-REQ-0315}
+\item{DMS-REQ-0284 (limited to the completeness of raw image creation)}
+\end{itemize}
+
+
+\subsubsection{Test items}
+This test will check:
+
+
+\begin{itemize}
+\item{The successful integration of the Pathfinder components with the CCOB;}
+\item{That the file can then be ingested into the DBB and be retrieved for further analysis;}
+\end{itemize}
+
+
+\subsubsection{Intercase dependencies}
+\begin{itemize}
+\item{None}
+\end{itemize}
+
+
+\subsubsection{Environmental needs}
+\paragraph{Hardware}
+\begin{itemize}
+\item{CCOB}
+\item{Test machine for LSST Monitoring Service}
+\end{itemize}
+
+
+\paragraph{Software}
+\begin{itemize}
+\item{CCOB device and the software to produce a file to be transferred and kept}
+\item{DBB software to produce a retrieval file for further processing}
+\end{itemize}
+
+
+\subsubsection{Input specification}
+None
+\subsubsection{Output specification}
+\begin{itemize}
+\item{CCOB files that follow specifications;}
+\item{DBB files that follow specifications;}
+\end{itemize}
+
+
+\subsubsection{Procedure}
+\begin{itemize}
+\item{CCOB device directs a human to where a file is wanted to be stored in the DBB;}
+\item{Transfer the file to the DBB ingest area; }
+\end{itemize}
+
+
 
 
 %----------------------------------------------------
@@ -332,7 +401,7 @@ Requirements for the OODS
 \subsubsection{Test items}
 This test will check:
 \begin{itemize}
-\item{The handoff of a raw image from the L1 Archiver to the OODS cache manager is successful;}
+\item{The handoff of a raw image from the Level 1 Archiver to the OODS cache manager is successful;}
 \item{A recently taken raw image is accessible to the Observatory Operations staff at the base and summit;}
 \end{itemize}
 
@@ -348,11 +417,11 @@ This test will check:
 
 
 To complete all tests in a manner which reflects the real system,
-the following hardware is needed.  Note: If not testing inter-machine access, the hardware can be minimized to a single machine outside of the L1 Test Stand.
+the following hardware is needed.  Note: If not testing inter-machine access, the hardware can be minimized to a single machine outside of the Level 1 Test Stand.
 
 
 \begin{itemize}
-\item{L1 Test Stand (include hardware from \hyperref[ras-00-00]{RAS-00-00}) + read/write access to OODS cache disk}
+\item{Level 1 Test Stand (include hardware from \hyperref[ras-00-00]{RAS-00-00}) + read/write access to OODS cache disk}
 \item{Test Machine for OODS cache manager with read/write access to OODS cache disk}
 \item{Test machine for Observatory Operations staff at "base" that can access OODS cache disk}
 \item{Test machine for Observatory Operations staff at "summit" that can access OODS cache disk}
@@ -372,7 +441,7 @@ Size of cache disk is determined by number of files to be included in the test.
 
 The following software must be installed:
 \begin{itemize}
-\item{L1 Test Stand (include software from \hyperref[ras-00-00]{RAS-00-00})}
+\item{Level 1 Test Stand (include software from \hyperref[ras-00-00]{RAS-00-00})}
 \item{OODS cache manager}
 \item{LSST Monitoring Service and plugins specific to monitoring raw images and OODS}
 \item{LSST stack for checking raw images}
@@ -397,10 +466,10 @@ None.
 \subsubsection{Procedure}
 Repeat the following steps for each of the different cameras (ATScam, LSSTCam) and sensors (Science, Wavefront, and Guider):
 \begin{itemize}
-\item{Initialize all services configuring the L1 Archiver Service so that the raw images are to be saved to the OODS;}
+\item{Initialize all services configuring the Level 1 Archiver Service so that the raw images are to be saved to the OODS;}
 \item{Acquire a raw image (see \hyperref[ras-00-00]{RAS-00-00});}
-\item{The handoff of the raw image from the L1 Archiver Service to the test OODS automatically occurs;}
-\item{For each of the expected raw images, verify that the checksum matches the original L1 checksum;}
+\item{The handoff of the raw image from the Level 1 Archiver Service to the test OODS automatically occurs;}
+\item{For each of the expected raw images, verify that the checksum matches the original Level 1 checksum;}
 \item{The DM Stack shall be initialized using the \texttt{loadLSST} script;}
 \item{A ``Data Butler'' will be initialized to access the raw image repository in the OODS cache;}
 \item{For each of the expected raw images, the file will be retrieved from the ``Data Butler'' showing accessibility via the OODS;}
@@ -430,7 +499,7 @@ Repeat the following steps for each of the different cameras (ATScam, LSSTCam) a
 
 This test will check:
 \begin{itemize}
-\item{That the handoff of a raw image from the L1 Archiver Service to the DBB buffer
+\item{That the handoff of a raw image from the Level 1 Archiver Service to the DBB buffer
 manager is successful;}
 \item{That the raw image is ingested into the Data Backbone successfully;}
 \item{That the monitoring of the above items is successful;}
@@ -449,7 +518,7 @@ a raw image to be in the Data Backbone, see the tests for the Data Backbone.
 \subsubsection{Environmental needs}
 \paragraph{Hardware}
 \begin{itemize}
-\item{L1 Test Stand (include hardware from \hyperref[ras-00-00]{RAS-00-00}) + read/write access to DBB buffer disk;}
+\item{Level 1 Test Stand (include hardware from \hyperref[ras-00-00]{RAS-00-00}) + read/write access to DBB buffer disk;}
 \item{Test Machine for DBB buffer manager with read/write access to DBB buffer disk;}
 \item{Test machine for each DBB endpoint with read/write access to DBB disk;}
 \item{Test machine for LSST Monitoring Service;}
@@ -460,12 +529,12 @@ Size of buffer disk and DBB disk is determined by number of files to be included
 
 
 Note: If not testing inter-machine operability, then the hardware can be minimized
-to a single machine outside of the L1 test stand.
+to a single machine outside of the Level 1 test stand.
 
 
 \paragraph{Software}
 \begin{itemize}
-\item{L1 Test Stand}
+\item{Level 1 Test Stand}
 \item{DBB buffer manager}
 \item{DBB raw image ingestion}
 \item{DBB database}
@@ -482,7 +551,7 @@ None
 \subsubsection{Output specification}
 \begin{itemize}
 \item{Raw image(s) are saved to storage and replicated to correct locations with checksums that match
-original L1 checksum;}
+original Level 1 checksum;}
 \item{Database containing information of the following types: physical, location, science metadata,
 provenance as specified in \citeds{LSE-61};}
 \item{Both image(s) and database entries replicated correctly;}
@@ -492,11 +561,11 @@ provenance as specified in \citeds{LSE-61};}
 \subsubsection{Procedure}
 Repeat the following steps for each of the different cameras (ATScam, LSSTCam) and sensors (Science, Wavefront, and Guider):
 \begin{itemize}
-\item{Initialize all services configuring the L1 Archiver Service so that the raw images are to be archived to the DBB;}
+\item{Initialize all services configuring the Level 1 Archiver Service so that the raw images are to be archived to the DBB;}
 \item{Acquire a raw image (see \hyperref[ras-00-00]{RAS-00-00});}
-\item{After the automatic handoff of the raw image between the L1 Archiver Service and the DBB buffer manager, the raw
+\item{After the automatic handoff of the raw image between the Level 1 Archiver Service and the DBB buffer manager, the raw
 image will automatically be ingested into the Test Data Backbone;}
-\item{Check that the raw image is accessible at each test DBB endpoint and matches original L1 checksum;}
+\item{Check that the raw image is accessible at each test DBB endpoint and matches original Level 1 checksum;}
 \item{Check that LSST Monitoring Service showed the appropriate information successfully;}
 \item{More complete tests of the DBB can be done by running the DBB
 service tests on the raw image(s). These would check correctness
