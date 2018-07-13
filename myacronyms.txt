@@ -10,6 +10,7 @@ CAS:Central Authentication System
 CCB:Change Control Board
 CCS:Camera Control System
 COB:Cluster On Board
+CCOB: Camera Calibration Optical Bench
 CPI:Cost Performance Index
 CR:Change Request
 DAC:Data Access Center
