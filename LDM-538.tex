@@ -3,13 +3,17 @@
 % Package imports go here.
 
 \usepackage{enumitem}
+\input meta.tex
+
 \begin{document}
 \def\product{LSST DM Raw Image Archiving Service}
-\setDocCompact{true}
-\author{Michelle Butler, Jim Parsons, Michelle Gower }
+\author{Michelle Butler, Jim Parsons, Michelle Gower}
 \setDocDate{\vcsdate}
 \setDocRef{LDM-538}
 
+\setDocUpstreamLocation{\url{https://github.com/lsst/LDM-538}}
+\setDocCurator{Michelle Butler}
+\setDocUpstreamVersion{\vcsrevision}
 
 \date{\today}
 
@@ -33,9 +37,6 @@ tests for the overall raw image creation and ingest into the permanent
 record of the survey.
 }
 
-
-\setDocUpstreamLocation{\url{https://github.com/lsst/ldm-538}}
-% \setDocUpstreamVersion{\vcsrevision}
 
 
 \maketitle
