@@ -3,27 +3,24 @@
 % Package imports go here.
 
 \usepackage{enumitem}
-\begin{document}
+\input meta.tex
+
 \def\product{LSST DM Raw Image Archiving Service}
-\setDocCompact{true}
-\author{Michelle Butler, Jim Parsons, Michelle Gower }
+\author{Michelle Butler, Jim Parsons, Michelle Gower}
 \setDocDate{\vcsdate}
 \setDocRef{LDM-538}
 
-
-\date{\today}
-
+\setDocUpstreamLocation{\url{https://github.com/lsst/LDM-538}}
+\setDocCurator{Michelle Butler}
+\setDocUpstreamVersion{\vcsrevision}
 
 % Change history defined here.
 \setDocChangeRecord{%
 \addtohist{}{2018-04-18}{initial release - draft version}{Michelle Butler}
+\addtohist{1.0}{2018-07-13}{Approved in \jira{RFC-488}.}{W.~O'Mullane}
 }
 
-
 \title[Test Spec for \product]{\product~Test Specification}
-
-
-
 
 \setDocAbstract {
 This document describes the detailed test specification for the
@@ -33,13 +30,8 @@ tests for the overall raw image creation and ingest into the permanent
 record of the survey.
 }
 
-
-\setDocUpstreamLocation{\url{https://github.com/lsst/ldm-538}}
-% \setDocUpstreamVersion{\vcsrevision}
-
-
+\begin{document}
 \maketitle
-
 
 \section{Introduction}
 \label{sec:intro}
@@ -155,7 +147,7 @@ which includes parts from each of the following components of the LSST system
 The major activities to be performed are to:
 \begin{itemize}
 \item{Show successful integration between Telescope subsystems and Level 1 Archiver Service;}
-\item{Show successful integration between CCOB(Camera Calibration Optical Bench) and DBB (Data Backbone);}
+\item{Show successful integration between CCOB (Camera Calibration Optical Bench) and DBB (Data Backbone);}
 \item{Show successful integration between Level 1 Archiver Service and OODS;}
 \item{Show successful integration between Level 1 Archiver Service and DBB;}
 \end{itemize}
