@@ -1,0 +1,938 @@
+\section{Test Cases Summary}\label{test-cases-summary}
+
+Follows the list of test cases documented in this specification.
+
+\begin{longtable}[]{p{3cm}p{13cm}}
+\toprule
+Test Id & Test Name\tabularnewline
+\midrule
+\endhead
+    \hyperref[lvv-t283]{LVV-T283} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T283}{RAS-00-00: Writing well-formed raw image} \tabularnewline
+    \hyperref[lvv-t284]{LVV-T284} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T284}{RAS-00-05:Writing data from CCOB to the DBB for further data processing} \tabularnewline
+    \hyperref[lvv-t285]{LVV-T285} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T285}{RAS-00-10: Raw images in Observatory Operations Data Service} \tabularnewline
+    \hyperref[lvv-t286]{LVV-T286} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T286}{RAS-00-20: Raw image are part of the permanent record of survey via DBB} \tabularnewline
+    \hyperref[lvv-t287]{LVV-T287} &
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T287}{RAS-00-30: Raw Image Archiving Availability, Throughput, Reliability, and Heterogeneity} \tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\section{Test Cases}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T283}{LVV-T283}
+    - RAS-00-00: Writing well-formed raw image}\label{lvv-t283}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & False & Michelle Butler
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Requirements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-8}{LVV-8} - DMS-REQ-0018-V-01: Raw Science Image Data Acquisition
+\item \href{https://jira.lsstcorp.org/browse/LVV-9}{LVV-9} - DMS-REQ-0020-V-01: Wavefront Sensor Data Acquisition
+\item \href{https://jira.lsstcorp.org/browse/LVV-96}{LVV-96} - DMS-REQ-0265-V-01: Guider Calibration Data Acquisition
+\item \href{https://jira.lsstcorp.org/browse/LVV-28}{LVV-28} - DMS-REQ-0068-V-01: Raw Science Image Metadata
+\item \href{https://jira.lsstcorp.org/browse/LVV-11}{LVV-11} - DMS-REQ-0024-V-01: Raw Image Assembly
+\item \href{https://jira.lsstcorp.org/browse/LVV-146}{LVV-146} - DMS-REQ-0315-V-01: DMS Communication with OCS
+\item \href{https://jira.lsstcorp.org/browse/LVV-115}{LVV-115} - DMS-REQ-0284-V-01: Level-1 Production Completeness
+\end{itemize}
+
+\subsubsection{Test Items}
+This test will check:\\
+
+\begin{itemize}
+\tightlist
+\item
+  The successful integration of the Pathfinder components with the DM
+  Header Service and the Level 1 Archiver;
+\item
+  That the raw images are well-formed and meet specifications in
+  change-controlled documents LSE-61;
+\end{itemize}
+
+~This Test Case shall be repeated for each of the different cameras
+(ATScam, LSSTCam) and sensors (Science, Wavefront, and Guider)
+combination.
+
+
+
+\subsubsection{Intercase Dependencies}
+None.
+
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+\begin{itemize}
+\tightlist
+\item
+  Level 1 software and services needed to create raw image
+\item
+  LSST Monitoring Service and plugins specific to monitoring Level 1
+  Test Stand and services
+\end{itemize}
+
+
+\paragraph{Hardware}
+\begin{itemize}
+\tightlist
+\item
+  Level 1 test stand
+\item
+  Test machine for LSST Monitoring Service
+\end{itemize}
+
+
+\subsubsection{Input Specification}
+None.
+
+
+\subsubsection{Output Specification}
+Raw image(s) that follow specifications defined in change-controlled
+document LSE-61.
+
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Configure system to pull appropriate data from the DAQ emulator
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                A functional DAQ for images to be received from.~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Acquire raw data from DAQ readout and DMHS
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                a raw image and a header from the DMHS~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Fetch data and reassemble correctly, regardless of CCD/Sensor
+manufacturer type (two different types will be used)
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Build the data into a fits file
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            CheckCompletenessandcorrectnessoftherawimagesincludingformat,metadata,and
+image data;
+
+\begin{itemize}
+\tightlist
+\item
+  Check proper fetch and reassembly of image data from camera DAQ
+  (correct format and data);
+\item
+  Check proper merge of header service data with image data;
+\item
+  Check correct insertion of exposure specific data needed in the data
+  file that is not supplied by header service;
+\item
+  Check minimum required metadata (from requirements document LSE-61)
+  exists in raw image header;
+\end{itemize}
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                a well formed FITS file with a proper header that has been verified to
+be correct.~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Check that the checksum of the file matches the previously calculated
+value that will be passed on to downstream services
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                a MD5sum number generated from the step 4 file.~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Check confirmation that the data files arrive at their destination
+intact
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                a transfer of the file to the correct location for further retrieval
+from other services.~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 7 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Check that LSST Monitoring Service showed the appropriate information
+successfully
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                all systems remained green through out the test, and showed all systems
+up and available. ~\\
+~\\
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T284}{LVV-T284}
+    - RAS-00-05:Writing data from CCOB to the DBB for further data processing}\label{lvv-t284}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & False & Michelle Butler
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Requirements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-9}{LVV-9} - DMS-REQ-0020-V-01: Wavefront Sensor Data Acquisition
+\item \href{https://jira.lsstcorp.org/browse/LVV-8}{LVV-8} - DMS-REQ-0018-V-01: Raw Science Image Data Acquisition
+\item \href{https://jira.lsstcorp.org/browse/LVV-96}{LVV-96} - DMS-REQ-0265-V-01: Guider Calibration Data Acquisition
+\item \href{https://jira.lsstcorp.org/browse/LVV-28}{LVV-28} - DMS-REQ-0068-V-01: Raw Science Image Metadata
+\item \href{https://jira.lsstcorp.org/browse/LVV-11}{LVV-11} - DMS-REQ-0024-V-01: Raw Image Assembly
+\item \href{https://jira.lsstcorp.org/browse/LVV-146}{LVV-146} - DMS-REQ-0315-V-01: DMS Communication with OCS
+\item \href{https://jira.lsstcorp.org/browse/LVV-115}{LVV-115} - DMS-REQ-0284-V-01: Level-1 Production Completeness
+\end{itemize}
+
+\subsubsection{Test Items}
+This test will check:
+
+\begin{itemize}
+\tightlist
+\item
+  The successful integration of the Pathfinder components with the CCOB;
+\item
+  That the file can then be ingested into the DBB and be retrieved for
+  further analysis;
+\end{itemize}
+
+
+
+\subsubsection{Intercase Dependencies}
+None.
+
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+\begin{itemize}
+\tightlist
+\item
+  CCOB device and the software to produce a file to be transferred and
+  kept
+\item
+  DBB software to produce a retrieval file for further processing
+\end{itemize}
+
+
+\paragraph{Hardware}
+\begin{itemize}
+\tightlist
+\item
+  CCOB
+\item
+  Test machine for LSST Monitoring Service
+\end{itemize}
+
+
+\subsubsection{Input Specification}
+None.
+
+
+\subsubsection{Output Specification}
+\begin{itemize}
+\tightlist
+\item
+  CCOB files that follow specifications;
+\item
+  DBB files that follow specifications;
+\item
+  CCOB device directs a human to where a file is wanted to be stored in
+  the DBB;
+\item
+  Transfer the file to the DBB ingest area;
+\end{itemize}
+
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            CCOB device directs a human to where a file is wanted to be stored in
+the DBB
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                a file has been created by the device. ~a UNIQUE file name is needed for
+this result to work.~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Transfer the file to the DBB ingest area
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                A command is executed by a human with a file name and path to the file
+wanted to be stored in the DBB.~ The file is transferred to NCSA's DBB
+ingest area.~ ~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T285}{LVV-T285}
+    - RAS-00-10: Raw images in Observatory Operations Data Service}\label{lvv-t285}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & False & Michelle Butler
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Requirements}
+    None.
+
+\subsubsection{Test Items}
+This test will check:
+
+\begin{itemize}
+\tightlist
+\item
+  The handoff of a raw image from the Level 1 Archiver to the OODS cache
+  manager is successful;
+\item
+  A recently taken raw image is accessible to the Observatory Operations
+  staff at the base and summit;
+\end{itemize}
+
+~This Test Case shall be repeated for each of the different cameras
+(ATScam, LSSTCam) and sensors (Science, Wavefront, and Guider)
+combination.
+
+
+
+\subsubsection{Intercase Dependencies}
+LVV-T283
+
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+The following software must be installed:\\
+~\\
+
+\begin{itemize}
+\tightlist
+\item
+  Level 1 Test Stand (include software from LVV-T283 - RAS-00-00)
+\item
+  OODS cache manager
+\item
+  LSST Monitoring Service and plugins specific to monitoring raw images
+  and OODS~
+\item
+  LSST stack for checking raw images
+\end{itemize}
+
+
+\paragraph{Hardware}
+To complete all tests in a manner which reflects the real system, the
+following hardware is needed. Note: If not testing inter-machine access,
+the hardware can be minimized to a single machine outside of the Level 1
+Test Stand.
+
+\begin{itemize}
+\tightlist
+\item
+  Level1TestStand(include hardware from LVV-T283 - RAS-00-00)+read/write
+  access to OODS cache disk
+\item
+  Test Machine for OODS cache manager with read/write access to OODS
+  cache disk
+\item
+  Test machine for Observatory Operations staff at ''base'' that can
+  access OODS cache disk
+\item
+  Test machine for Observatory Operations staff at ''summit'' that can
+  access OODS cache disk
+\item
+  Test machine for LSST Monitoring Service
+\end{itemize}
+
+Size of cache disk is determined by number of files to be included in
+the test.
+
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+Raw image(s) that follow format defined in LSE-61;\\
+Database (may be SQLite file) that enables the raw image(s) to be
+accessed via a ``Data Butler''.
+
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Initialize all services configuring the Level 1 Archiver Service so that
+the raw images are to be saved to the OODS
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                all camera and services for images are running and reporting green
+through the monitoring programs for the services. ~\\
+~\\
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Acquire a raw image
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Image present in the input folder.
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            \emph{The handoff of the raw image from the Level 1 Archiver Service to
+the test OODS automatically occurs\\
+}
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                the raw image with a proper header is written to a file area managed by
+the OODS\\
+~\\
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            For each of the expected raw images, verify that the checksum matches
+the original Level 1 checksum
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                checksum of the file is checked against the file for verification that
+the OODS has the correct file and it matches the original md5sum of the
+FITS file.\\
+~\\
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Check that LSST Monitoring Service showed the appropriate information
+successfully
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                Make sure all camera and OODS systems were available thorughout this
+test.~ ~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T286}{LVV-T286}
+    - RAS-00-20: Raw image are part of the permanent record of survey via DBB}\label{lvv-t286}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & False & Michelle Butler
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Requirements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-28}{LVV-28} - DMS-REQ-0068-V-01: Raw Science Image Metadata
+\item \href{https://jira.lsstcorp.org/browse/LVV-177}{LVV-177} - DMS-REQ-0346-V-01: Data Availability
+\item \href{https://jira.lsstcorp.org/browse/LVV-115}{LVV-115} - DMS-REQ-0284-V-01: Level-1 Production Completeness
+\end{itemize}
+
+\subsubsection{Test Items}
+This test will check:\\
+~\\
+
+\begin{itemize}
+\tightlist
+\item
+  That the handoff of a raw image from the Level 1 Archiver Service to
+  the DBB buffer manager is successful;
+\item
+  That the raw image is ingested into the Data Backbone successfully;
+\item
+  That the monitoring of the above items is successful;
+\end{itemize}
+
+This Test Case shall be repeated for each of the different cameras
+(ATScam, LSSTCam) and sensors (Science, Wavefront, and Guider)
+combination.\\
+~\\
+Note: For a complete check of the various aspects of what it means for a
+raw image to be in the Data Backbone, see the tests for the Data
+Backbone.
+
+
+
+\subsubsection{Intercase Dependencies}
+LVV-T283
+
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+\begin{itemize}
+\tightlist
+\item
+  Level 1 Test Stand
+\item
+  DBB buffer manager
+\item
+  DBB raw image ingestion
+\item
+  DBB database
+\item
+  LSST Monitoring Service and plugins specific to monitoring raw images,
+  DBB buffer manager, and DBB
+\end{itemize}
+
+
+\paragraph{Hardware}
+\begin{itemize}
+\tightlist
+\item
+  Level 1 Test Stand (include hardware from LVV-T-283 - RAS-00-00) +
+  read/write access to DBB buffer disk;
+\item
+  Test Machine for DBB buffer manager with read/write access to DBB
+  buffer disk;
+\item
+  Test machine for each DBB endpoint with read/write access to DBB disk;
+\item
+  Test machine for LSST Monitoring Service
+\end{itemize}
+
+Size of buffer disk and DBB disk is determined by number of files to be
+included in the test.\\
+~\\
+Note: If not testing inter-machine operability, then the hardware can be
+minimized to a single machine outside of the Level 1 test stand.
+
+
+\subsubsection{Input Specification}
+​​​​​None
+
+
+\subsubsection{Output Specification}
+\begin{itemize}
+\tightlist
+\item
+  Raw image(s) are saved to storage and replicated to correct locations
+  with checksums that match original Level 1 checksum;
+\item
+  Database containing information of the following types: physical,
+  location, science metadata, provenance as specified in LSE-61;
+\item
+  Both image(s) and database entries replicated correctly;
+\end{itemize}
+
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Initialize all services configuring the Level 1 Archiver Service so that
+the raw images are to be archived to the DBB
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                all services for the camera images and the DBB services are all running
+and ready for data.~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 2 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Acquire a raw image (see LVV-T283 - RAS-00-00){\\
+}
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                have a raw Fits file with proper header.~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            After the automatic handoff of the raw image between the Level 1
+Archiver Service and the DBB buffer manager, the raw image will
+automatically be ingested into the Data Backbone
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                the DBB file systems will have the file, and metadata and providence
+will be recorded in the consolidated DB. ~ The file will also be
+replicated to mulitple locations for DR.~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Check that the raw image is accessible at each ~DBB endpoint and matches
+original Level 1 checksum
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                data resides at NCSA DBB end point, and Chile end point and match with
+the same checksum.~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            Check that LSST Monitoring Service showed the appropriate information
+successfully
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                all related systems remained up during this test.~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 6 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            More complete tests of the DBB can be done by running the DBB service
+tests on the raw image(s). These would check correctness and
+completeness of the data stored in the database as well as checking that
+the file has been replicated to all required places
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                These would be more tests of when things go wrong to make sure that the
+DBB is able to continue to work, and not be in the way of taking images
+from the camera\\
+~\\
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
+\subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T287}{LVV-T287}
+    - RAS-00-30: Raw Image Archiving Availability, Throughput, Reliability, and Heterogeneity}\label{lvv-t287}
+
+\begin{longtable}[]{llllll}
+\toprule
+Version & Status & Priority & Verification Type & Critical Event & Owner
+\\\midrule
+1 & Draft & Normal &
+Test & False & Michelle Butler
+\\\bottomrule
+\end{longtable}
+
+\subsubsection{Requirements}
+\begin{itemize}
+\item \href{https://jira.lsstcorp.org/browse/LVV-5}{LVV-5} - DMS-REQ-0008-V-01: Pipeline Availability
+\item \href{https://jira.lsstcorp.org/browse/LVV-65}{LVV-65} - DMS-REQ-0162-V-01: Pipeline Throughput
+\item \href{https://jira.lsstcorp.org/browse/LVV-68}{LVV-68} - DMS-REQ-0165-V-01: Infrastructure Sizing for "catching up"
+\item \href{https://jira.lsstcorp.org/browse/LVV-70}{LVV-70} - DMS-REQ-0167-V-01: Incorporate Autonomics
+\item \href{https://jira.lsstcorp.org/browse/LVV-145}{LVV-145} - DMS-REQ-0314-V-01: Compute Platform Heterogeneity
+\item \href{https://jira.lsstcorp.org/browse/LVV-149}{LVV-149} - DMS-REQ-0318-V-01: Data Management Unscheduled Downtime
+\item \href{https://jira.lsstcorp.org/browse/LVV-140}{LVV-140} - DMS-REQ-0309-V-01: Raw Data Archiving Reliability
+\end{itemize}
+
+\subsubsection{Test Items}
+This test will check:\\
+~\\
+
+\begin{itemize}
+\tightlist
+\item
+  Raw Image Archiving meets availability requirements;
+\item
+  Raw Image Archiving meets throughput requirements;
+\item
+  Raw Image Archiving meets reliability requirements;
+\item
+  Raw Image Archiving meets heterogeneity requirements;
+\end{itemize}
+
+This test case need to be completed when more information is available.
+
+
+
+\subsubsection{Intercase Dependencies}
+
+\subsubsection{Environment Needs}
+
+\paragraph{Software}
+
+\paragraph{Hardware}
+
+\subsubsection{Input Specification}
+
+\subsubsection{Output Specification}
+
+\subsubsection{Test Procedure}
+    \begin{longtable}[]{p{1.3cm}p{2cm}p{13cm}}
+    %\toprule
+    Step & \multicolumn{2}{@{}l}{Description, Input Data and Expected Result} \\ \toprule
+    \endhead
+
+            \multirow{3}{*}{ 1 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            these will be filled out as the service becomes more known as to what
+the availablility, throughput, reliability and heterogeneity are. ~\\
+~\\
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                The archive system will stay up through thick and thin and perform like
+it's suppose to.\\
+~\\
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+    \end{longtable}
+
