@@ -10,7 +10,7 @@ Test Id & Test Name\tabularnewline
     \hyperref[lvv-t283]{LVV-T283} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T283}{RAS-00-00: Writing well-formed raw image} \tabularnewline
     \hyperref[lvv-t284]{LVV-T284} &
-    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T284}{RAS-00-05:Writing data from CCOB to the DBB for further data processing} \tabularnewline
+    \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T284}{RAS-00-05: Writing data from CCOB to the DBB for further data processing} \tabularnewline
     \hyperref[lvv-t285]{LVV-T285} &
     \href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T285}{RAS-00-10: Raw images in Observatory Operations Data Service} \tabularnewline
     \hyperref[lvv-t286]{LVV-T286} &
@@ -267,7 +267,7 @@ up and available. ~\\
     \end{longtable}
 
 \subsection{\href{https://jira.lsstcorp.org/secure/Tests.jspa\#/testCase/LVV-T284}{LVV-T284}
-    - RAS-00-05:Writing data from CCOB to the DBB for further data processing}\label{lvv-t284}
+    - RAS-00-05: Writing data from CCOB to the DBB for further data processing}\label{lvv-t284}
 
 \begin{longtable}[]{llllll}
 \toprule
@@ -327,6 +327,15 @@ None.
   CCOB
 \item
   Test machine for LSST Monitoring Service
+\item
+  consolidate DB~
+\item
+  DBB ingest file system~
+\item
+  DBB output file system~
+\item
+  data transfer protocol to move data from CCOB file systems to DBB
+  ingest file system~
 \end{itemize}
 
 
@@ -338,7 +347,7 @@ None.
 \begin{itemize}
 \tightlist
 \item
-  CCOB files that follow specifications;
+  CCOB (raw image) files that follow specifications;
 \item
   DBB files that follow specifications;
 \item
@@ -357,8 +366,8 @@ None.
 
             \multirow{3}{*}{ 1 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            CCOB device directs a human to where a file is wanted to be stored in
-the DBB
+            CCOB device directs a human to where a raw file is wanted to be stored
+in the DBB
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -369,8 +378,8 @@ the DBB
             } \end{minipage} \\ \cline{2-3}
             & Expected Result &
                 \begin{minipage}[t]{13cm}{\footnotesize
-                a file has been created by the device. ~a UNIQUE file name is needed for
-this result to work.~~
+                A file with a unique file name is in a file system somewhere, and the
+data is then transferred to NCSA.~ ~
 
                 \vspace{\dp0}
                 } \end{minipage}
@@ -378,7 +387,9 @@ this result to work.~~
 
             \multirow{3}{*}{ 2 } & Description &
             \begin{minipage}[t]{13cm}{\footnotesize
-            Transfer the file to the DBB ingest area
+            Move the data from the transferred directory into the DBB foreign file
+ingest file system. ~\\
+~\\
 
             \vspace{\dp0}
             } \end{minipage} \\ \cline{2-3}
@@ -395,6 +406,63 @@ ingest area.~ ~~
 
                 \vspace{\dp0}
                 } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 3 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            The DBB is notified of a new file being in the ingest area, and the DBB
+ingest is run manually to ingest the CCOB file.~ ~
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                The DBB puts the resulting file into the DBB file systems depending on
+what type of file it is. ~The DB is updated with metadata and providence
+of the file to be kept. ~ The resulting file system is queryable by the
+LSP to find the CCOB raw image.~~
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 4 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            The LSP can review and use the CCOB raw data file that was stored
+originally somewhere else such as slac
+
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
+                \begin{minipage}[t]{13cm}{\footnotesize
+                LSP has the ability to find the file and view/use it. ~\\
+~\\
+
+                \vspace{\dp0}
+                } \end{minipage}
+        \\ \midrule
+
+            \multirow{3}{*}{ 5 } & Description &
+            \begin{minipage}[t]{13cm}{\footnotesize
+            
+            \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Test Data &
+            \begin{minipage}[t]{13cm}{\footnotesize
+                No data.
+                \vspace{\dp0}
+            } \end{minipage} \\ \cline{2-3}
+            & Expected Result &
         \\ \midrule
     \end{longtable}
 
