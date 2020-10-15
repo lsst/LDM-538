@@ -1,7 +1,7 @@
 .. image:: https://img.shields.io/badge/ldm--538-lsst.io-brightgreen.svg
    :target: https://ldm-538.lsst.io
-.. image:: https://travis-ci.org/lsst/LDM-538.svg
-   :target: https://travis-ci.org/lsst/LDM-538
+.. image:: https://github.com/lsst/LDM-538/workflows/CI/badge.svg
+   :target: https://github.com/lsst/LDM-538/actions/
 
 ##########################################
 LSST Level 1 DM Raw Image Archiving Service
